@@ -32,7 +32,7 @@ public class SecondActivity extends AppCompatActivity {
         JapaneseChar.setText("あ");
 
         inputf = (EditText)findViewById(R.id.editText);
-        txt = inputf.getText().toString();
+
 
         submit = (Button)findViewById(R.id.submitbtn);
         submitbtn();
@@ -52,11 +52,14 @@ public class SecondActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
+                        txt = inputf.getText().toString();
+
+
                         if (txt.equals("a")) {
-                            Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG);
+                            Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
 
                         } else {
-                            Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG);
+                            Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG).show();
                         }
 
 
