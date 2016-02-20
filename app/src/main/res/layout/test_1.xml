@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/Japanesecharr"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04"
+        android:layout_marginTop="92dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/input"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04"
+        android:layout_marginTop="95dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="submit"
+        android:id="@+id/submitbtn"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04"
+        android:layout_marginTop="96dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="next"
+        android:id="@+id/nextbtn"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
+</LinearLayout>
