@@ -1,0 +1,22 @@
+<root>
+    <Charcater id = "1">
+        <A>a</A>
+        <B>あ</B>
+    </Charcater>
+    <Charcater id = "2">
+        <A>i</A>
+        <B>い</B>
+    </Charcater>
+    <Charcater id="3">
+        <A>u</A>
+        <B>う</B>
+    </Charcater>
+    <Charcater id="4">
+        <A>e</A>
+        <B>え</B>
+    </Charcater>
+    <Charcater id="5">
+        <A>o</A>
+        <B>お</B>
+    </Charcater>
+</root>
