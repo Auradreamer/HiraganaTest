@@ -38,6 +38,9 @@ public class SecondActivity extends AppCompatActivity {
     Map.Entry entry;
 
     int counter = 0;
+    double per;
+
+    Intent intent = new Intent();
 
 
 
@@ -63,6 +66,15 @@ public class SecondActivity extends AppCompatActivity {
 
         next = (Button)findViewById(R.id.nextbtn);
         next();
+
+        per = (counter/ht.size());
+
+        String perc = String.valueOf(per);
+
+
+        intent.putExtra("score",perc);
+
+
 
     }
 
@@ -110,6 +122,8 @@ public class SecondActivity extends AppCompatActivity {
                         if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
                             counter++;
+
+                           // per = 100;
                             ht.remove(key);
                             JapaneseChar.setText("Try more?");
                             startbtn();
@@ -150,9 +164,11 @@ public class SecondActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent();
+
                         intent.setClass(SecondActivity.this, ThirdActivity.class);
                         SecondActivity.this.startActivity(intent);
+
+
 
 
                     }

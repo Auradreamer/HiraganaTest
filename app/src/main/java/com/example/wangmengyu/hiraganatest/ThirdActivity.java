@@ -8,15 +8,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ThirdActivity extends AppCompatActivity {
 
     Button returntomenu;
 
+    TextView s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_2);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
+        String score = bundle.getString("score");
+        s = (TextView)findViewById(R.id.score);
+
+        s.setText(score);
+
+
 
         returntomenu = (Button)findViewById(R.id.returnbtn);
         setReturntomenu();
