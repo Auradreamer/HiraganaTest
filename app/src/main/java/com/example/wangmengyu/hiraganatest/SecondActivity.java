@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Hashtable;
+
 public class SecondActivity extends AppCompatActivity {
 
     TextView JapaneseChar;
@@ -31,7 +33,16 @@ public class SecondActivity extends AppCompatActivity {
 
         JapaneseChar = (TextView)findViewById(R.id.Japanesecharr);
 
-        JapaneseChar.setText("あ");
+        //achieving key,value pairs from the hashtable
+
+        TestHashTable hashTable = new TestHashTable();
+        Hashtable ht = hashTable.TestHashTable();
+        for (Object value : ht.values()) {
+            JapaneseChar.setText(value.toString());
+
+        }
+
+        //JapaneseChar.setText("あ");
 
         inputf = (EditText)findViewById(R.id.editText);
 
