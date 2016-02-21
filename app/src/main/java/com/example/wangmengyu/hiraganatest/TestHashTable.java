@@ -10,6 +10,7 @@ public class TestHashTable {
     public Hashtable TestHashTable() {
 
         Hashtable<String,String> hashtable = new Hashtable<>();
+
         hashtable.put("a","あ");
         hashtable.put("i","い");
         hashtable.put("u","う");

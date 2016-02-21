@@ -16,6 +16,7 @@ import android.widget.Toast;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -24,14 +25,19 @@ public class SecondActivity extends AppCompatActivity {
     String txt;
 
     Button submit;
+    Button start;
 
     TestHashTable hashTable = new TestHashTable();
-    Hashtable ht = hashTable.TestHashTable();
+    Hashtable ht;
+
     String vl;
     String key;
 
-    Iterator iterator = ht.entrySet().iterator();
+    Iterator iterator;
     Map.Entry entry;
+
+    Random r = new Random();
+    int i;
 
 
 
@@ -44,13 +50,8 @@ public class SecondActivity extends AppCompatActivity {
         JapaneseChar = (TextView)findViewById(R.id.Japanesecharr);
 
         //achieving key,value pairs from the hashtable
-
-
-        for (Object value : ht.values()) {
-            vl = value.toString();
-            JapaneseChar.setText(value.toString());
-
-        }
+        start = (Button)findViewById(R.id.startbtn);
+        startbtn();
 
         //JapaneseChar.setText("あ");
 
@@ -68,6 +69,25 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+
+    public void startbtn() {
+
+        start.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        setTextview();
+
+                    }
+                }
+
+
+        );
+
+
+    }
+
     public void submitbtn() {
 
         submit.setOnClickListener(
@@ -76,6 +96,8 @@ public class SecondActivity extends AppCompatActivity {
                     public void onClick(View view) {
 
                         txt = inputf.getText().toString();
+
+                        iterator = ht.entrySet().iterator();
 
 
                         while (iterator.hasNext()) {
@@ -90,22 +112,13 @@ public class SecondActivity extends AppCompatActivity {
 
                         if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
+                            startbtn();
+                            ht.remove(vl);
+
 
                         } else {
                             Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG).show();
                         }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     }
@@ -114,6 +127,18 @@ public class SecondActivity extends AppCompatActivity {
 
         );
 
+
+    }
+
+    public void setTextview() {
+
+        ht = hashTable.TestHashTable();
+
+        for (Object value : ht.values()) {
+            vl = value.toString();
+            JapaneseChar.setText(value.toString());
+
+        }
 
     }
 
