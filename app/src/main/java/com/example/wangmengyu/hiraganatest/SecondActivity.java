@@ -28,17 +28,13 @@ public class SecondActivity extends AppCompatActivity {
     Button start;
 
     TestHashTable hashTable = new TestHashTable();
-    Hashtable ht;
+    Hashtable  ht = hashTable.TestHashTable();
 
     String vl;
     String key;
 
     Iterator iterator;
     Map.Entry entry;
-
-    Random r = new Random();
-    int i;
-
 
 
 
@@ -61,14 +57,7 @@ public class SecondActivity extends AppCompatActivity {
         submit = (Button)findViewById(R.id.submitbtn);
         submitbtn();
 
-
-
-
-
-
-
     }
-
 
     public void startbtn() {
 
@@ -112,8 +101,9 @@ public class SecondActivity extends AppCompatActivity {
 
                         if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
+                            ht.remove(key);
+                            JapaneseChar.setText("Try more?");
                             startbtn();
-                            ht.remove(vl);
 
 
                         } else {
@@ -132,14 +122,13 @@ public class SecondActivity extends AppCompatActivity {
 
     public void setTextview() {
 
-        ht = hashTable.TestHashTable();
+            for (Object value : ht.values()) {
+                vl = value.toString();
+                JapaneseChar.setText(value.toString());
 
-        for (Object value : ht.values()) {
-            vl = value.toString();
-            JapaneseChar.setText(value.toString());
-
+            }
         }
 
-    }
+
 
 }
