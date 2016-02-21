@@ -17,6 +17,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
+import android.util.Log;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -106,10 +107,10 @@ public class SecondActivity extends AppCompatActivity {
 
                         txt = inputf.getText().toString();
 
-                        iterator = ht.entrySet().iterator();
+                       // iterator = ht.entrySet().iterator();
 
 
-                        while (iterator.hasNext()) {
+                       /* while (iterator.hasNext()) {
                             entry = (Map.Entry)iterator.next();
                             if(entry.getValue().equals(vl)) {
 
@@ -117,14 +118,17 @@ public class SecondActivity extends AppCompatActivity {
 
                             }
 
-                        }
+                        }*/
 
-                        if (txt.equals(key)) {
+                        if (ht.get(txt) != null && (ht.get(txt)).toString().equals(vl)) {
+
+
+                       /* if (txt.equals(key)) { */
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
                             counter++;
 
                            // per = 100;
-                            ht.remove(key);
+                            ht.remove(txt);
                             JapaneseChar.setText("Try more?");
                             startbtn();
 
