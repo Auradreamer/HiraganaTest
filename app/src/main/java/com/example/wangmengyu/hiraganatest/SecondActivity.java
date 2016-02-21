@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Map;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -22,6 +24,14 @@ public class SecondActivity extends AppCompatActivity {
     String txt;
 
     Button submit;
+
+    TestHashTable hashTable = new TestHashTable();
+    Hashtable ht = hashTable.TestHashTable();
+    String vl;
+    String key;
+
+    Iterator iterator = ht.entrySet().iterator();
+    Map.Entry entry;
 
 
 
@@ -35,9 +45,9 @@ public class SecondActivity extends AppCompatActivity {
 
         //achieving key,value pairs from the hashtable
 
-        TestHashTable hashTable = new TestHashTable();
-        Hashtable ht = hashTable.TestHashTable();
+
         for (Object value : ht.values()) {
+            vl = value.toString();
             JapaneseChar.setText(value.toString());
 
         }
@@ -68,12 +78,34 @@ public class SecondActivity extends AppCompatActivity {
                         txt = inputf.getText().toString();
 
 
-                        if (txt.equals("a")) {
+                        while (iterator.hasNext()) {
+                            entry = (Map.Entry)iterator.next();
+                            if(entry.getValue().equals(vl)) {
+
+                                key = entry.getKey().toString();
+
+                            }
+
+                        }
+
+                        if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
 
                         } else {
                             Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG).show();
                         }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     }
