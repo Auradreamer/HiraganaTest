@@ -16,6 +16,11 @@ public class TestHashTable {
         hashtable.put("u","う");
         hashtable.put("e","え");
         hashtable.put("o","お");
+        hashtable.put("ka","か");
+        hashtable.put("ki","き");
+        hashtable.put("ku","く");
+        hashtable.put("ke","け");
+        hashtable.put("ko","こ");
         return hashtable;
 
     }

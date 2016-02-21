@@ -26,6 +26,7 @@ public class SecondActivity extends AppCompatActivity {
 
     Button submit;
     Button start;
+    Button next;
 
     TestHashTable hashTable = new TestHashTable();
     Hashtable  ht = hashTable.TestHashTable();
@@ -35,6 +36,8 @@ public class SecondActivity extends AppCompatActivity {
 
     Iterator iterator;
     Map.Entry entry;
+
+    int counter = 0;
 
 
 
@@ -57,6 +60,10 @@ public class SecondActivity extends AppCompatActivity {
         submit = (Button)findViewById(R.id.submitbtn);
         submitbtn();
 
+
+        next = (Button)findViewById(R.id.nextbtn);
+        next();
+
     }
 
     public void startbtn() {
@@ -65,6 +72,7 @@ public class SecondActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+
 
                         setTextview();
 
@@ -101,6 +109,7 @@ public class SecondActivity extends AppCompatActivity {
 
                         if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
+                            counter++;
                             ht.remove(key);
                             JapaneseChar.setText("Try more?");
                             startbtn();
@@ -122,12 +131,39 @@ public class SecondActivity extends AppCompatActivity {
 
     public void setTextview() {
 
+        if (ht.size() > 0) {
+
             for (Object value : ht.values()) {
                 vl = value.toString();
                 JapaneseChar.setText(value.toString());
 
             }
+        } else {
+            JapaneseChar.setText("Good job! Click NEXT to see your score!");
+
         }
+    }
+
+    public void next() {
+
+        next.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent();
+                        intent.setClass(SecondActivity.this, ThirdActivity.class);
+                        SecondActivity.this.startActivity(intent);
+
+
+                    }
+                }
+
+
+        );
+
+
+    }
+
 
 
 
