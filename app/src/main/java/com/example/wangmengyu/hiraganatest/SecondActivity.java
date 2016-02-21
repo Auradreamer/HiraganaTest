@@ -30,6 +30,7 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.test_1);
 
         JapaneseChar = (TextView)findViewById(R.id.Japanesecharr);
+
         JapaneseChar.setText("あ");
 
         inputf = (EditText)findViewById(R.id.editText);
