@@ -192,11 +192,15 @@ public class SecondActivity extends AppCompatActivity {
     public void setTextview() {
 
         if (charlist.size() > 0) {
-            for (int i = 0; i < charlist.size(); i++) {
+            //for (int i = 0; i < charlist.size(); i++) {
+
+            //random selected from the list
+            Random rand = new Random();
+            int i = rand.nextInt(charlist.size());
 
                 JapaneseChar.setText(charlist.get(i).toString());
                 ran = i;
-            }
+            //}
         } else {
 
             JapaneseChar.setText("Good job! Click NEXT to see your score!");
