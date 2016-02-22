@@ -14,11 +14,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import android.util.Log;
+import java.util.ArrayList;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -50,6 +52,9 @@ public class SecondActivity extends AppCompatActivity {
     String[] characters;
     String[] sound;
 
+    ArrayList charlist;
+    ArrayList soundList;
+
 
     int ran;
 
@@ -65,6 +70,10 @@ public class SecondActivity extends AppCompatActivity {
         res = getResources();
         characters = res.getStringArray(R.array.hiraganaChar);
         sound = res.getStringArray(R.array.hiraganaSound);
+
+        // convert array to arraylist
+        charlist = new ArrayList(Arrays.asList(characters));
+        soundList = new ArrayList(Arrays.asList(sound));
 
 
 
@@ -126,9 +135,10 @@ public class SecondActivity extends AppCompatActivity {
 
                         txt = inputf.getText().toString();
 
-                        if(txt.equals(sound[ran])) {
+                        if(soundList.get(ran).toString().equals(txt)) {
 
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
+                            charlist.remove(ran);
 
 
                             JapaneseChar.setText("Try more?");
@@ -181,11 +191,16 @@ public class SecondActivity extends AppCompatActivity {
 
     public void setTextview() {
 
-        for(int i = 0; i < characters.length; i++) {
+        if (charlist.size() > 0) {
+            for (int i = 0; i < charlist.size(); i++) {
 
+                JapaneseChar.setText(charlist.get(i).toString());
+                ran = i;
+            }
+        } else {
 
-            JapaneseChar.setText(characters[i]);
-            ran = i;
+            JapaneseChar.setText("Good job! Click NEXT to see your score!");
+
         }
 
        /* if (ht.size() > 0) {
