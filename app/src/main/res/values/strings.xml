@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding ="utf-8" ?>
 <resources>
     <string name="app_name">HiraganaTest</string>
     <string name="action_settings">Settings</string>
@@ -9,6 +10,7 @@
         <item>う</item>
         <item>え</item>
         <item>お</item>
+        <item>か</item>
     </string-array>
 
     <string-array name="hiraganaSound">
@@ -17,5 +19,6 @@
         <item>u</item>
         <item>e</item>
         <item>o</item>
+        <item>ka</item>
     </string-array>
 </resources>

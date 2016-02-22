@@ -1,5 +1,6 @@
 package com.example.wangmengyu.hiraganatest;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -43,6 +44,15 @@ public class SecondActivity extends AppCompatActivity {
 
     Intent intent = new Intent();
 
+    //Get the data stored in the strings.xml
+
+    Resources res;
+    String[] characters;
+    String[] sound;
+
+
+    int ran;
+
 
 
     @Override
@@ -52,11 +62,20 @@ public class SecondActivity extends AppCompatActivity {
 
         JapaneseChar = (TextView)findViewById(R.id.Japanesecharr);
 
+        res = getResources();
+        characters = res.getStringArray(R.array.hiraganaChar);
+        sound = res.getStringArray(R.array.hiraganaSound);
+
+
+
         //achieving key,value pairs from the hashtable
         start = (Button)findViewById(R.id.startbtn);
         startbtn();
 
-        //JapaneseChar.setText("あ");
+
+
+
+        //JapaneseChar.setText((characters[1].toString()));
 
         inputf = (EditText)findViewById(R.id.editText);
 
@@ -107,6 +126,18 @@ public class SecondActivity extends AppCompatActivity {
 
                         txt = inputf.getText().toString();
 
+                        if(txt.equals(sound[ran])) {
+
+                            Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
+
+
+                            JapaneseChar.setText("Try more?");
+                            startbtn();
+
+                        } else {
+                            Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG).show();
+                        }
+
                        // iterator = ht.entrySet().iterator();
 
 
@@ -120,10 +151,10 @@ public class SecondActivity extends AppCompatActivity {
 
                         }*/
 
-                        if (ht.get(txt) != null && (ht.get(txt)).toString().equals(vl)) {
+                       /*if (ht.get(txt) != null && (ht.get(txt)).toString().equals(vl)) {
 
 
-                       /* if (txt.equals(key)) { */
+                       /* if (txt.equals(key)) {
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
                             counter++;
 
@@ -135,7 +166,8 @@ public class SecondActivity extends AppCompatActivity {
 
                         } else {
                             Toast.makeText(SecondActivity.this, "Woops! Try again\n", Toast.LENGTH_LONG).show();
-                        }
+                        }*/
+
 
 
                     }
@@ -149,7 +181,14 @@ public class SecondActivity extends AppCompatActivity {
 
     public void setTextview() {
 
-        if (ht.size() > 0) {
+        for(int i = 0; i < characters.length; i++) {
+
+
+            JapaneseChar.setText(characters[i]);
+            ran = i;
+        }
+
+       /* if (ht.size() > 0) {
 
             for (Object value : ht.values()) {
                 vl = value.toString();
@@ -160,6 +199,7 @@ public class SecondActivity extends AppCompatActivity {
             JapaneseChar.setText("Good job! Click NEXT to see your score!");
 
         }
+        */
     }
 
     public void next() {
