@@ -193,7 +193,6 @@ public class SecondActivity extends AppCompatActivity {
 
         if (charlist.size() > 0) {
             //for (int i = 0; i < charlist.size(); i++) {
-
             //random selected from the list
             Random rand = new Random();
             int i = rand.nextInt(charlist.size());
