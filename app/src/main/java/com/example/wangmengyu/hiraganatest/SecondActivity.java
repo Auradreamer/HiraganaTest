@@ -31,6 +31,7 @@ public class SecondActivity extends AppCompatActivity {
     Button submit;
     Button start;
     Button next;
+    Button hint;
 
     TestHashTable hashTable = new TestHashTable();
     Hashtable  ht = hashTable.TestHashTable();
@@ -92,6 +93,10 @@ public class SecondActivity extends AppCompatActivity {
         submit = (Button)findViewById(R.id.submitbtn);
         submitbtn();
 
+        hint = (Button) findViewById(R.id.hintbtn);
+        hintbtn();
+
+
 
         next = (Button)findViewById(R.id.nextbtn);
         next();
@@ -126,6 +131,23 @@ public class SecondActivity extends AppCompatActivity {
 
     }
 
+    public void hintbtn() {
+
+        hint.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Toast.makeText(SecondActivity.this, "Hint: "+ soundList.get(ran).toString(), Toast.LENGTH_LONG).show();
+
+                    }
+                }
+
+
+        );
+
+    }
+
     public void submitbtn() {
 
         submit.setOnClickListener(
@@ -139,9 +161,11 @@ public class SecondActivity extends AppCompatActivity {
 
                             Toast.makeText(SecondActivity.this, "Correct!", Toast.LENGTH_LONG).show();
                             charlist.remove(ran);
+                            soundList.remove(ran);
 
 
                             JapaneseChar.setText("Try more?");
+                            inputf.setText("");
                             startbtn();
 
                         } else {

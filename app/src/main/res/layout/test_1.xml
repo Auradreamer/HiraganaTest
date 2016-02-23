@@ -40,11 +40,18 @@
         android:layout_marginTop="96dp"/>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hint"
+        android:id="@+id/hintbtn"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.04" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next"
+        android:text="Accuracy"
         android:id="@+id/nextbtn"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.04" />
