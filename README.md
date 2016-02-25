@@ -1,6 +1,6 @@
 # HiraganaTest
 
-We are the fans of learing Japanese. This app is aiming to assist us with practicing Hiragana in a fun way. 
+We are the fans of learning Japanese. This app is aiming to assist us with practicing Hiragana in a fun way. 
 
 Initially, there are two parts of this app. The first part is about randomly giving the Japanese character for users to enter the right pronoucation for it (which is the test 1).
 
